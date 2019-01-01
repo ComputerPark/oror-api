@@ -1,3 +1,13 @@
+<?php
+  function get_api_status($host, $name){
+    if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
+      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
+      fclose($socket);
+    } else {
+      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
+    }
+  }  
+?>
 <html>
 <head>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="  anonymous">
@@ -34,55 +44,25 @@
   </nav>
 </head>
 <body>
-<div class="container">
-<br>
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>알림:  </strong>아직 베타 단계에서 개발중인 프로젝트입니다.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-
-<?php
-  function get_api_status($host, $name){
-    if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
-      fclose($socket);
-    } else {
-      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
-    }
-  }  
-?>
-
-<h1 class="display-4">List of APIs</h1>
-<ul class="list-group list-group-flush">
-<li class="list-group-item">
-<?php
-  get_api_status("google.com", "google-test");
-?>
-</li>
-<li class="list-group-item"><a href="https://ara.api.oror.kr">ara</a> - 
-<?php
-$host = 'ara.api.oror.kr';
-if($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-echo '<span class="badge badge-success">Online</span>';
-fclose($socket);
-} else {
-echo '<span class="badge badge-danger">Offline</span>';
-}
-?>
-</li>
-<li class="list-group-item"><a href="https://wtf.api.oror.kr">wtf</a> - 
-<?php
-$host = 'wtf.api.oror.kr';
-if($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-echo '<span class="badge badge-success">Online</span>';
-fclose($socket);
-} else {
-echo '<span class="badge badge-danger">Offline</span>';
-}
-?>
-</li>
-</ul>
-</div>
+  <div class="container">
+    <br>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>알림:  </strong>아직 베타 단계에서 개발중인 프로젝트입니다.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <h1 class="display-4">List of APIs</h1>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <?php get_api_status("google.com", "google-test"); ?>
+      </li>
+      <li class="list-group-item"><a href="https://ara.api.oror.kr">ara</a> - 
+        <?php get_api_status("ara.api.oror.kr", "ara"); ?>
+      </li>
+      <li class="list-group-item"><a href="https://wtf.api.oror.kr">wtf</a> - 
+        <?php get_api_status("wtf.api.oror.kr", "wtf-test"); ?>
+      </li>
+    </ul>
+  </div>
 </body>
