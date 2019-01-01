@@ -44,12 +44,12 @@
 </div>
 
 <?php
-  function get_api_status($host){
+  function get_api_status($host, $name){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo "<a href=\"https://".$host."\">ara</a>".' - <span class="badge badge-success">Online</span>';
+      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
       fclose($socket);
     } else {
-      echo "<a href=\"https://".$host."\">ara</a>".' - <span class="badge badge-danger">Offline</span>';
+      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
     }
   }  
 ?>
@@ -58,7 +58,7 @@
 <ul class="list-group list-group-flush">
 <li class="list-group-item">
 <?php
-  get_api_status("google.com");
+  get_api_status("google.com", "google-test");
 ?>
 </li>
 <li class="list-group-item"><a href="https://ara.api.oror.kr">ara</a> - 
