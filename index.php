@@ -1,4 +1,10 @@
 <?php
+  /*
+   * function get_api_status()
+   * 파라미터: $host, $name
+   * 확인할 API의 host주소와 웹페이지에 표시할 이름을 파라미터로 전달받는다.
+   * host주소에 https를 붙여서 $name으로 표시할 URL과 Online/Offline 배지로 리턴한다.
+   */
   function get_api_status($host, $name){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
       echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
