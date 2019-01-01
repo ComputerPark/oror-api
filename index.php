@@ -57,10 +57,10 @@
       <li class="list-group-item">
         <?php get_api_status("google.com", "google-test"); ?>
       </li>
-      <li class="list-group-item"><a href="https://ara.api.oror.kr">ara</a> - 
+      <li class="list-group-item">
         <?php get_api_status("ara.api.oror.kr", "ara"); ?>
       </li>
-      <li class="list-group-item"><a href="https://wtf.api.oror.kr">wtf</a> - 
+      <li class="list-group-item">
         <?php get_api_status("wtf.api.oror.kr", "wtf-test"); ?>
       </li>
     </ul>
