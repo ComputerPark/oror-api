@@ -12,6 +12,14 @@
     } else {
       echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
     }
+  }
+  function get_api_status_new($host, $name){
+    if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
+      echo "<td>".$name."</td><td><a href=\"https://".$host."\">"."</td><td><span class=\"badge badge-success\">Online</span></td>";
+      fclose($socket);
+    } else {
+      echo "<td>".$name."</td><td><a href=\"https://".$host."\">"."</td><td><span class=\"badge badge-danger\">Offline</span></td>";
+    }
   }  
 ?>
 <html>
@@ -59,6 +67,32 @@
       </button>
     </div>
     <h1 class="display-4">List of APIs</h1>
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">이름</th>
+        <th scope="col">URL</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+         <th scope="row">1</th>
+        <?php get_api_status_new("google.com", "구글 테스트 #1"); ?>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <?php get_api_status_new("ara.api.oror.kr", "아라봇 API"); ?>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <?php get_api_status_new("wtf.api.oror.kr", "실패 테스트 #2"); ?>
+      </tr>
+    </tbody>
+  </table>
+
+  <br>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
         <?php get_api_status("google.com", "google-test"); ?>
