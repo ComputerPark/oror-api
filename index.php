@@ -5,6 +5,7 @@
    * 확인할 API의 host주소와 웹페이지에 표시할 이름을 파라미터로 전달받는다.
    * host주소에 https를 붙여서 $name으로 표시할 URL과 Online/Offline 배지로 리턴한다.
    */
+  /*
   function get_api_status($host, $name){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
       echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
@@ -13,6 +14,7 @@
       echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
     }
   }
+  */
   function get_api_status_new($host, $name){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
       echo "<td>"."<a href=\"https://".$host."\">".$name."</a>"."</td><td><span class=\"badge badge-success\">Online</span></td>";
@@ -67,6 +69,7 @@
       </button>
     </div>
     <h1 class="display-4">List of APIs</h1>
+    <br>
     <table class="table">
     <thead>
       <tr>
@@ -90,7 +93,7 @@
       </tr>
     </tbody>
   </table>
-
+<!--
   <br>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">
@@ -103,5 +106,6 @@
         <?php get_api_status("wtf.api.oror.kr", "wtf-test"); ?>
       </li>
     </ul>
+-->
   </div>
 </body>
