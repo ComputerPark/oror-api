@@ -15,10 +15,10 @@
   }
   function get_api_status_new($host, $name){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo "<td>".$name."</td><td><a href=\"https://".$host."\">"."</td><td><span class=\"badge badge-success\">Online</span></td>";
+      echo "<td>"."<a href=\"https://".$host."\">".$name."</a>"."</td><td><span class=\"badge badge-success\">Online</span></td>";
       fclose($socket);
     } else {
-      echo "<td>".$name."</td><td><a href=\"https://".$host."\">"."</td><td><span class=\"badge badge-danger\">Offline</span></td>";
+      echo "<td>"."<a href=\"https://".$host."\">".$name."</a>"."</td><td><span class=\"badge badge-danger\">Offline</span></td>";
     }
   }  
 ?>
@@ -72,7 +72,6 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">이름</th>
-        <th scope="col">URL</th>
         <th scope="col">Status</th>
       </tr>
     </thead>
