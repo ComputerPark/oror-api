@@ -46,10 +46,10 @@
 <?php
   function get_api_status($host){
     if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo '<span class="badge badge-success">Online</span>';
+      echo "<a href=\"https://".$host."\">ara</a>".' - <span class="badge badge-success">Online</span>';
       fclose($socket);
     } else {
-      echo '<span class="badge badge-danger">Offline</span>';
+      echo "<a href=\"https://".$host."\">ara</a>".' - <span class="badge badge-danger">Offline</span>';
     }
   }  
 ?>
@@ -57,7 +57,6 @@
 <h1 class="display-4">List of APIs</h1>
 <ul class="list-group list-group-flush">
 <li class="list-group-item">
-google.com - 
 <?php
   get_api_status("google.com");
 ?>
