@@ -40,10 +40,18 @@ function get_api_status_new($host, $name) {
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
   <meta name="theme-color" content="#448AFF"/>
 
-  <title>oror.kr API - API status</title>
+  <title>컴터박 API - API status</title>
+
+  <style>
+    nav {
+    	font-family: "Malgun Gothic", "AppleSDGothicNeo", "NanumGothic", "Segoe UI", "Roboto", "Helvetica", Ariel, sans-serif !important;
+    }
+  </style>
+  
   <!--navbar-->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #448AFF !important">
-    <a class="navbar-brand" href="#">oror.kr API</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #448AFF !important;">
+    <a class="navbar-brand" href="https://oror.kr" style="margin-right: 0.4rem">컴터박</a>
+    <a class="navbar-brand" href="https://api.oror.kr">API</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
