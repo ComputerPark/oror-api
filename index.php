@@ -50,8 +50,10 @@ function get_api_status_new($host, $name) {
   
   <!--navbar-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: #448AFF !important;">
-    <a class="navbar-brand" href="https://oror.kr" style="margin-right: 0.4rem">컴터박</a>
-    <a class="navbar-brand" href="https://api.oror.kr">API</a>
+  	<li style="list-style:none; padding-left:0px">
+      <a class="navbar-brand" href="https://oror.kr" style="margin-right: 0.2rem">컴터박</a>
+      <a class="navbar-brand" href="https://api.oror.kr">API</a>
+    </li>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
