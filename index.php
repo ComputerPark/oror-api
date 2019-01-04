@@ -1,30 +1,14 @@
 <?php
-  /*
-   * function get_api_status()
-   * 파라미터: $host, $name
-   * 확인할 API의 host주소와 웹페이지에 표시할 이름을 파라미터로 전달받는다.
-   * host주소에 https를 붙여서 $name으로 표시할 URL과 Online/Offline 배지로 리턴한다.
-   */
-  /*
-  function get_api_status($host, $name){
-    if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-success">Online</span>';
-      fclose($socket);
+function get_api_status_new($host, $name) {
+    if ($socket = @ fsockopen($host, 80, $errno, $errstr, 30)) {
+        echo "<td>" . "<a href=\"https://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-success\"><i class=\"fas fa-check\"></i> Online</span></td>";
+        fclose($socket);
     } else {
-      echo "<a href=\"https://".$host."\">".$name."</a>".' - <span class="badge badge-danger">Offline</span>';
+        echo "<td>" . "<a href=\"https://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-danger\"><i class=\"fas fa-times\"></i> Offline</span></td>";
     }
-  }
-  */
-  function get_api_status_new($host, $name){
-    if ($socket =@ fsockopen($host, 80, $errno, $errstr, 30)) {
-      echo "<td>"."<a href=\"https://".$host."\">".$name."</a>"."</td><td><span class=\"badge badge-success\"><i class=\"fas fa-check\"></i> Online</span></td>";
-      fclose($socket);
-    } else {
-      echo "<td>"."<a href=\"https://".$host."\">".$name."</a>"."</td><td><span class=\"badge badge-danger\"><i class=\"fas fa-times\"></i> Offline</span></td>";
-    }
-  }  
+}
 ?>
-<html>
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="description" content="oror API Status Checker">
@@ -82,52 +66,38 @@
   </nav>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <br>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <strong>알림:  </strong>아직 베타 단계에서 개발중인 프로젝트입니다.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+        <strong>알림: </strong>아직 베타 단계에서 개발중인 프로젝트입니다.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
     <h1 class="display-4">List of APIs</h1>
     <br>
     <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">이름</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-         <th scope="row">1</th>
-        <?php get_api_status_new("google.com", "구글 테스트 #1"); ?>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <?php get_api_status_new("ara.api.oror.kr", "아라봇 API"); ?>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <?php get_api_status_new("wtf.api.oror.kr", "실패 테스트 #2"); ?>
-      </tr>
-    </tbody>
-  </table>
-<!--
-  <br>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">
-        <?php get_api_status("google.com", "google-test"); ?>
-      </li>
-      <li class="list-group-item">
-        <?php get_api_status("ara.api.oror.kr", "ara"); ?>
-      </li>
-      <li class="list-group-item">
-        <?php get_api_status("wtf.api.oror.kr", "wtf-test"); ?>
-      </li>
-    </ul>
--->
-  </div>
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">이름</th>
+            <th scope="col">Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <?php get_api_status_new("google.com", "구글 테스트 #1"); ?>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <?php get_api_status_new("ara.api.oror.kr", "아라봇 API"); ?>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <?php get_api_status_new("wtf.api.oror.kr", "실패 테스트 #2"); ?>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
