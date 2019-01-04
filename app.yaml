@@ -1,8 +1,1 @@
-application: mealworm-2018
-version: 19.0104
 runtime: php72
-api_version: 1
- 
-handlers:
-- url: /.*
-  script index.php 
