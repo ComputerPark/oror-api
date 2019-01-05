@@ -28,9 +28,9 @@ handlers:
     # You can also replace "*" with a specific host, e.g. https://example.org
     Access-Control-Allow-Origin: "*"
 
-# CSS, Javascript, text and other file types
+# CSS, Javascript, text, json and other file types
 
-- url: /(.+\.(css|js|xml|txt))
+- url: /(.+\.(css|js|xml|txt|json))
   static_files: \1
-  upload: (.+\.(css|js|xml|txt))
+  upload: (.+\.(css|js|xml|txt|json))
   expiration: "10m"
