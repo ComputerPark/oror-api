@@ -41,7 +41,7 @@ function get_api_status_new($host, $name) {
     <meta name="msapplication-TileImage" content="/fav/ms-icon-144x144.png">
     <meta name="theme-color" content="#448AFF"/>
 
-    <title>컴터박 API - API status</title>
+    <title>컴터박 API - Status</title>
 
     <style>
       nav {
@@ -93,7 +93,7 @@ function get_api_status_new($host, $name) {
 	        <span aria-hidden="true">&times;</span>
         </button>
 	    </div>
-	    <h1 class="display-4">List of APIs</h1>
+	    <h1 class="display-4">List of Services</h1>
 	    <br>
 	    <table class="table">
 		    <thead>
@@ -106,7 +106,7 @@ function get_api_status_new($host, $name) {
 		    <tbody>
 		      <tr>
 			      <th scope="row">1</th>
-			      <?php get_api_status_new("google.com", "구글 테스트 #1"); ?>
+			      <?php get_api_status_new("home.oror.kr", "컴터박 홈서버"); ?>
 		      </tr>
 		      <tr>
 			      <th scope="row">2</th>
@@ -114,7 +114,7 @@ function get_api_status_new($host, $name) {
 		      </tr>
             <tr>
 	            <th scope="row">3</th>
-	            <?php get_api_status_new("wtf.api.oror.kr", "실패 테스트 #2"); ?>
+	            <?php get_api_status_new("cloud.oror.kr", "oror Cloud"); ?>
             </tr>
 		    </tbody>
 	    </table>
