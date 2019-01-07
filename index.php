@@ -1,10 +1,10 @@
 <?php
-function get_api_status_new($host, $name) {
-  if ($socket = @ fsockopen($host, 80, $errno, $errstr, 30)) {
-    echo "<td>" . "<a href=\"https://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-success\"><i class=\"fas fa-check\"></i> Online</span></td>";
+function get_api_status_new($host, $name, $protocol, $port) {
+  if ($socket = @ fsockopen($host, $port, $errno, $errstr, 2)) {
+    echo "<td>" . "<a href=\"".$protocol."://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-success\"><i class=\"fas fa-check\"></i> Online</span></td>";
       fclose($socket);
     } else {
-      echo "<td>" . "<a href=\"https://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-danger\"><i class=\"fas fa-times\"></i> Offline</span></td>";
+      echo "<td>" . "<a href=\"".$protocol."://" . $host . "\">" . $name . "</a>" . "</td><td><span class=\"badge badge-danger\"><i class=\"fas fa-times\"></i> Offline</span></td>";
     }
 }
 ?>
@@ -16,9 +16,9 @@ function get_api_status_new($host, $name) {
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
     <!--jquery, popper.js, bootstrapjs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
@@ -106,16 +106,16 @@ function get_api_status_new($host, $name) {
 		    <tbody>
 		      <tr>
 			      <th scope="row">1</th>
-			      <?php get_api_status_new("home.oror.kr", "컴터박 홈서버"); ?>
+			      <?php get_api_status_new("home.oror.kr", "컴터박 FTP", "ftp", 21); ?>
 		      </tr>
 		      <tr>
 			      <th scope="row">2</th>
-			      <?php get_api_status_new("ara.api.oror.kr", "아라봇 API"); ?>
+			      <?php get_api_status_new("ara.api.oror.kr", "아라봇 API", "https", 443); ?>
 		      </tr>
-            <tr>
-	            <th scope="row">3</th>
-	            <?php get_api_status_new("cloud.oror.kr", "oror Cloud"); ?>
-            </tr>
+		      <tr>
+			      <th scope="row">3</th>
+			      <?php get_api_status_new("cloud.oror.kr", "oror Cloud", "https", 443); ?>
+		      </tr>
 		    </tbody>
 	    </table>
     </div>
