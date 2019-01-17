@@ -8,7 +8,7 @@ function get_api_status_new($host, $name, $protocol, $port) {
 	}
 }
 
-echo get_api_status_new($_POST["host"], $_POST["name"], $
+get_api_status_new($_POST["host"], $_POST["name"], $_POST["protocol"], $_POST["port"]);
 
 
 
