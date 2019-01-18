@@ -10,17 +10,20 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
-
-	  <?php include 'fav.php'; ?>
+    <?php include 'fav.php'; ?>
     <title>컴터박 API - Status</title>
+    <script>
+      $(document).ready( function() {
+          $("#test1").load("up.php?host=ftp.oror.kr&name=컴터박%20FTP&protocol=ftp&port=21&row=1");
+          $("#test2").load("up.php?host=cloud.oror.kr&name=oror%20Cloud&protocol=https&port=443&row=2");
+          $("#test3").load("up.php?host=ara.api.oror.kr&name=아라봇%20API&protocol=https&port=443&row=3");
 
-    <style>
-
-    </style>
-  </head>
+      });
+    </script>
+    </head>
   <body>
     <!--navbar-->
     <?php include 'navbar.php'; ?>
@@ -35,7 +38,7 @@
 	    </div>
 	    <h1 class="display-4">List of Services</h1>
 	    <br>
-	    <table class="table">
+	    <table class="table" id="statustable">
 		    <thead>
 		      <tr>
 			      <th scope="col">#</th>
@@ -44,17 +47,14 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <tr>
-			      <th scope="row">1</th>
-			      <?php get_api_status_new("home.oror.kr", "컴터박 FTP", "ftp", 21); ?>
+		      <tr id="test1">
+                  <td>Loading..</td>
 		      </tr>
-		      <tr>
-			      <th scope="row">2</th>
-			      <?php get_api_status_new("ara.api.oror.kr", "아라봇 API", "https", 443); ?>
+		      <tr id="test2">
+                  <td>Loading..</td>
 		      </tr>
-		      <tr>
-			      <th scope="row">3</th>
-			      <?php get_api_status_new("cloud.oror.kr", "oror Cloud", "https", 443); ?>
+		      <tr id="test3">
+                  <td>Loading..</td>
 		      </tr>
 		    </tbody>
 	    </table>
