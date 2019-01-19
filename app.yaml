@@ -1,14 +1,17 @@
-runtime: php72
+runtime: php55
 
 handlers:
-- url: /
-  script: auto
+- url: /up.php
+  script: /up.php
 
-- url: /index\.html
-  script: auto
-#
-# - url: /stylesheets
-#   static_dir: stylesheets
+- url: /
+  script: index.php
+
+- url: /index.php
+  script: index.php
+
+- url: /css
+  static_dir: css
 
 # - url: /(.*\.(gif|png|jpg))$
 #   static_files: static/\1
